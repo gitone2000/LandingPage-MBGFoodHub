@@ -1,0 +1,1007 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #3a57e8 0%, #5a7aff 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #3a57e8 0%, #5a7aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-grid-slate-100 {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgba(0,0,0,0.04)' stroke-width='2'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(58, 87, 232, 0.2);
+}
+
+.feature-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(58, 87, 232, 0.1);
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3a57e8 0%, #5a7aff 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(58, 87, 232, 0.4);
+}
+
+.stats-counter {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.morph-bg {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(45deg, #3a57e8, #5a7aff);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: morph 10s infinite;
+  filter: blur(60px);
+  opacity: 0.2;
+  right: 10%;
+  top: 50px;
+  z-index: 0;
+  will-change: transform, border-radius;
+  transition: all 1s;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  50% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  }
+
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .morph-bg {
+    width: 350px;
+    height: 350px;
+    left: 50%;
+  }
+}
+
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+@keyframes floatMedium {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(15px) translateX(-15px);
+  }
+}
+
+@keyframes floatX {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 15s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: floatMedium 20s ease-in-out infinite;
+}
+
+.animate-float-x {
+  animation: floatX 10s ease-in-out infinite;
+}
+
+.animate-float-y {
+  animation: floatY 12s ease-in-out infinite;
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-rotate-reverse {
+  animation: rotateReverse 25s linear infinite;
+}
+
+.shape {
+  position: absolute;
+  opacity: 1;
+}
+
+.shape-1 {
+  top: 5%;
+  left: 5%;
+  animation: smoothFloatLeftVertical2 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  top: 20%;
+  right: 10%;
+}
+
+.shape-3 {
+  bottom: 30%;
+  left: 15%;
+}
+
+.shape-4 {
+  bottom: 20%;
+  right: 20%;
+}
+
+.shape-5 {
+  top: 40%;
+  left: 80%;
+}
+
+.shape-6 {
+  bottom: 10%;
+  right: 5%;
+  animation: smoothFloatRightVertical2 15s ease-in-out infinite reverse;
+}
+
+.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.particles-container {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  top: 30%;
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.particle:nth-child(3) {
+  top: 50%;
+  left: 40%;
+  animation-delay: 2s;
+}
+
+.particle:nth-child(4) {
+  top: 70%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+  top: 90%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.particle:nth-child(6) {
+  top: 20%;
+  left: 90%;
+  animation-delay: 5s;
+}
+
+.particle:nth-child(7) {
+  top: 60%;
+  left: 10%;
+  animation-delay: 6s;
+}
+
+.particle:nth-child(8) {
+  top: 80%;
+  left: 70%;
+  animation-delay: 7s;
+}
+
+.particle:nth-child(9) {
+  top: 10%;
+  left: 80%;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(10) {
+  top: 60%;
+  left: 5%;
+  animation-delay: 7s;
+}
+
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0.5;
+  }
+}
+
+.geometric-shapes-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.geometric-shape {
+  position: absolute;
+  opacity: 0.25;
+  z-index: 0;
+  border: 2px solid rgba(58, 87, 232, 0.7);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 8px rgba(58, 87, 232, 0.1));
+}
+
+.geometric-circle {
+  border-radius: 50%;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color: rgba(58, 87, 232, 0.8);
+}
+
+.geometric-square {
+  border-radius: 10px;
+  transform: rotate(45deg);
+  border-color: rgba(90, 122, 255, 0.8);
+}
+
+.geometric-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 55px 95.26px 55px;
+  border-color: transparent transparent rgba(58, 87, 232, 0.8) transparent;
+  background: transparent !important;
+}
+
+.geometric-diamond {
+  width: 65px;
+  height: 65px;
+  background: transparent;
+  border: 2.5px solid rgba(90, 122, 255, 0.7);
+  transform: rotate(45deg);
+}
+
+.geometric-ring {
+  border-radius: 50%;
+  border: 2.5px dashed rgba(58, 87, 232, 0.6);
+  padding: 12px;
+  background: transparent;
+}
+
+.shape-left-1 {
+  left: -35px;
+  top: 15%;
+  width: 130px;
+  height: 130px;
+  animation: smoothFloatLeftDiagonal 30s ease-in-out infinite;
+}
+
+.shape-left-2 {
+  left: 6%;
+  top: 40%;
+  width: 85px;
+  height: 85px;
+  animation: smoothFloatLeftVertical 25s ease-in-out infinite reverse;
+}
+
+.shape-left-3 {
+  left: -25px;
+  top: 70%;
+  width: 65px;
+  height: 65px;
+  animation: smoothFloatLeftCircular 35s linear infinite;
+}
+
+.shape-right-2 {
+  right: 6%;
+  top: 50%;
+  width: 95px;
+  height: 95px;
+  animation: smoothFloatRightVertical 28s ease-in-out infinite reverse;
+}
+
+.shape-right-3 {
+  right: -25px;
+  top: 75%;
+  width: 75px;
+  height: 75px;
+  animation: smoothFloatRightCircular 40s linear infinite;
+}
+
+@keyframes smoothFloatLeftDiagonal {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.25;
+  }
+
+  20% {
+    transform: translate(30px, -40px) rotate(36deg);
+    opacity: 0.35;
+  }
+
+  40% {
+    transform: translate(15px, -80px) rotate(72deg);
+    opacity: 0.3;
+  }
+
+  60% {
+    transform: translate(10px, -100px) rotate(144deg);
+    opacity: 0.4;
+  }
+
+  80% {
+    transform: translate(-20px, -60px) rotate(252deg);
+    opacity: 0.35;
+  }
+}
+
+@keyframes smoothFloatRightVertical {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translateY(-90px) rotate(-180deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes smoothFloatRightVertical2 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+
+  }
+
+  50% {
+    transform: translateX(-15px) rotate(-180deg);
+  }
+}
+
+@keyframes smoothFloatLeftVertical {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translateY(-80px) rotate(180deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes smoothFloatLeftVertical2 {
+
+  0%,
+  100% {
+    transform: translateX(30px) rotate(0deg);
+
+  }
+
+  50% {
+    transform: translateY(80px) translateX(20px) rotate(180deg);
+
+  }
+}
+
+@keyframes smoothFloatLeftCircular {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes smoothFloatRightCircular {
+  0% {
+    transform: translate(0, 0) rotate(360deg);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.4;
+  }
+}
+
+.geometric-dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(58, 87, 232, 0.3);
+  pointer-events: none;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.dot-left-1 {
+  left: 4%;
+  top: 25%;
+  animation: smoothDotFloatLeft 18s ease-in-out infinite;
+}
+
+.dot-left-2 {
+  left: 9%;
+  top: 65%;
+  animation: smoothDotFloatLeft 22s ease-in-out infinite 4s;
+}
+
+.dot-left-3 {
+  left: 3%;
+  top: 85%;
+  animation: smoothDotFloatLeft 15s ease-in-out infinite 2s;
+}
+
+.dot-right-1 {
+  right: 4%;
+  top: 35%;
+  animation: smoothDotFloatRight 20s ease-in-out infinite;
+}
+
+.dot-right-2 {
+  right: 9%;
+  top: 55%;
+  animation: smoothDotFloatRight 24s ease-in-out infinite 3s;
+}
+
+.dot-right-3 {
+  right: 3%;
+  top: 90%;
+  animation: smoothDotFloatRight 17s ease-in-out infinite 5s;
+}
+
+.dot-right-4 {
+  right: 3%;
+  top: 70%;
+  animation: smoothDotFloatRight 17s ease-in-out infinite;
+}
+
+.dot-right-5 {
+  right: 50%;
+  top: 60%;
+  animation: smoothDotFloatRight 17s ease-in-out infinite;
+}
+
+@keyframes smoothDotFloatLeft {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+
+  25% {
+    transform: translate(25px, -60px);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translate(15px, -90px);
+    opacity: 0.3;
+  }
+
+  75% {
+    transform: translate(-15px, -90px);
+    opacity: 0.35;
+  }
+}
+
+@keyframes smoothDotFloatRight {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.25;
+  }
+
+  25% {
+    transform: translate(-30px, -45px);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translate(-20px, -80px);
+    opacity: 0.3;
+  }
+
+  75% {
+    transform: translate(20px, -75px);
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 768px) {
+  .geometric-shape {
+    opacity: 0.15;
+    border-width: 1.5px;
+  }
+
+  .shape-left-1,
+  .shape-left-2,
+  .shape-left-3,
+  .shape-right-2,
+  .shape-right-3 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .shape-left-1 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .geometric-dot {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .geometric-shapes-container {
+    opacity: 0.8;
+  }
+
+  .geometric-shape {
+    opacity: 0.1;
+  }
+}
+
+.particle-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(58, 87, 232, 0.6), rgba(90, 122, 255, 0.6));
+  box-shadow: 0 0 10px rgba(58, 87, 232, 0.3);
+}
+
+.particle-small {
+  width: 6px;
+  height: 6px;
+}
+
+.particle-medium {
+  width: 8px;
+  height: 8px;
+}
+
+.particle-large {
+  width: 12px;
+  height: 12px;
+}
+
+.particle-circle {
+  border-radius: 50%;
+}
+
+.particle-square {
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+
+@keyframes particleFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.5);
+  }
+
+  10% {
+    opacity: 0.8;
+    transform: translateY(0) scale(1);
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+  }
+}
+
+@keyframes particleFloatOut {
+  0% {
+    opacity: 0;
+    transform: translateX(20px) scale(0.5);
+  }
+
+  10% {
+    opacity: 0.8;
+    transform: translateX(0) scale(1);
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.5);
+  }
+}
+
+@keyframes particleDiagonal {
+  0% {
+    opacity: 0;
+    transform: translate(20px, 20px) scale(0.5);
+  }
+
+  10% {
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-80px, -100px) scale(0.5);
+  }
+}
+
+@keyframes particleArc {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+
+  20% {
+    opacity: 0.8;
+    transform: translate(50px, -30px) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(80px, -60px) scale(0.9);
+  }
+
+  80% {
+    opacity: 0.6;
+    transform: translate(40px, -90px) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(20px, -120px) scale(0.5);
+  }
+}
+
+.particle-1 {
+  top: 10%;
+  left: 5%;
+  animation: particleFloatIn 15s ease-in-out infinite;
+}
+
+.particle-2 {
+  top: 20%;
+  right: 10%;
+  animation: particleFloatOut 18s ease-in-out infinite 2s;
+}
+
+.particle-4 {
+  top: 60%;
+  right: 20%;
+  animation: particleArc 22s ease-in-out infinite 1s;
+}
+
+.particle-5 {
+  top: 30%;
+  left: 80%;
+  animation: particleFloatIn 16s ease-in-out infinite 3s;
+}
+
+.particle-7 {
+  top: 15%;
+  left: 40%;
+  animation: particleDiagonal 21s ease-in-out infinite 2s;
+}
+
+.particle-8 {
+  top: 55%;
+  right: 40%;
+  animation: particleArc 17s ease-in-out infinite 6s;
+}
+
+.particle-10 {
+  top: 45%;
+  right: 60%;
+  animation: particleFloatOut 25s ease-in-out infinite 7s;
+}
+
+.bubble-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(58, 87, 232, 0.1);
+  border: 1px solid rgba(90, 122, 255, 0.2);
+  animation: bubbleFloat 40s ease-in-out infinite;
+}
+
+.bubble-small {
+  width: 20px;
+  height: 20px;
+}
+
+.bubble-medium {
+  width: 30px;
+  height: 30px;
+}
+
+.bubble-large {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bubbleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.1;
+  }
+
+  33% {
+    transform: translateY(-40px) translateX(30px) scale(1.2);
+    opacity: 0.2;
+  }
+
+  66% {
+    transform: translateY(20px) translateX(-20px) scale(0.8);
+    opacity: 0.15;
+  }
+}
+
+.bubble-1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: 10s;
+}
+
+.bubble-3 {
+  top: 65%;
+  left: 20%;
+  animation-delay: 5s;
+}
+
+.bubble-4 {
+  top: 75%;
+  right: 25%;
+  animation-delay: 15s;
+}
+
+.sparkle-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: sparkleTwinkle 4s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.sparkle-1 {
+  top: 25%;
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 35%;
+  right: 35%;
+  animation-delay: 1s;
+}
+
+.sparkle-3 {
+  top: 55%;
+  left: 45%;
+  animation-delay: 2s;
+}
+
+.sparkle-4 {
+  top: 65%;
+  right: 55%;
+  animation-delay: 3s;
+}
+
+@media (max-width: 768px) {
+  .floating-particle {
+    width: 4px;
+    height: 4px;
+  }
+
+  .particle-large {
+    width: 8px;
+    height: 8px;
+  }
+
+  .bubble-particle {
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  .particle-container {
+    opacity: 0.5;
+  }
+}

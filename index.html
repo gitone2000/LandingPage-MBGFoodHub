@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBG Food Hub - Makan Bergizi Gratis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center">
+                        <img src="assets/images/clients/logo-bgn.png" alt="Dashboard Preview"
+                            class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-sm md:text-2xl font-bold gradient-text">MBG FOOD HUB</h1>
+                        <p class="text-xs text-gray-500">Makan Bergizi Gratis</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#beranda" class="text-gray-700 hover:text-blue-600 font-medium transition">Beranda</a>
+                    <a href="#fitur" class="text-gray-700 hover:text-blue-600 font-medium transition">Fitur</a>
+                    <a href="#program" class="text-gray-700 hover:text-blue-600 font-medium transition">Program</a>
+                    <a href="#tentang" class="text-gray-700 hover:text-blue-600 font-medium transition">Tentang</a>
+                </div>
+
+                <a href="https://school.decaasoftwares.com/"
+                    class="hidden md:inline-flex btn-primary text-white px-4 py-3 rounded-xl font-semibold">
+                    Masuk Aplikasi
+                </a>
+
+                <!-- Tambahan tombol menu mobile sidebar -->
+                <button id="mobile-menu-btn" onclick="toggleSidebar()"
+                    class="md:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tambahan mobile sidebar -->
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] hidden transition-opacity opacity-0"
+        onclick="toggleSidebar()"></div>
+
+    <div id="mobile-sidebar"
+        class="fixed top-0 right-0 h-full w-[280px] bg-white z-[70] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
+        <div class="p-6 flex justify-between items-center border-b border-gray-100">
+            <h2 class="text-xl font-bold gradient-text">Menu</h2>
+            <button onclick="toggleSidebar()" class="text-gray-500 hover:text-red-500 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col space-y-6 overflow-y-auto">
+            <a href="#beranda" onclick="toggleSidebar()"
+                class="text-lg text-gray-700 hover:text-blue-600 font-medium flex items-center gap-3">
+                <i data-lucide="home" class="w-5 h-5 text-blue-500"></i> Beranda
+            </a>
+            <a href="#fitur" onclick="toggleSidebar()"
+                class="text-lg text-gray-700 hover:text-blue-600 font-medium flex items-center gap-3">
+                <i data-lucide="grid" class="w-5 h-5 text-blue-500"></i> Fitur
+            </a>
+            <a href="#program" onclick="toggleSidebar()"
+                class="text-lg text-gray-700 hover:text-blue-600 font-medium flex items-center gap-3">
+                <i data-lucide="layers" class="w-5 h-5 text-blue-500"></i> Program
+            </a>
+            <a href="#tentang" onclick="toggleSidebar()"
+                class="text-lg text-gray-700 hover:text-blue-600 font-medium flex items-center gap-3">
+                <i data-lucide="info" class="w-5 h-5 text-blue-500"></i> Tentang
+            </a>
+        </div>
+
+        <div class="p-6 border-t border-gray-100 bg-gray-50">
+            <a href="https://school.decaasoftwares.com/"
+                class="btn-primary text-white w-full py-4 rounded-xl font-bold flex justify-center items-center gap-2 shadow-lg shadow-blue-500/30">
+                Masuk Aplikasi
+                <i data-lucide="log-in" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-32 pb-20 overflow-hidden">
+
+        <div class="absolute inset-0 -z-10">
+            <div
+                class="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] bg-top">
+            </div>
+
+            <!-- <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div> -->
+            <!-- <div class="absolute top-0 -right-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div> -->
+            <!-- <div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div> -->
+        </div>
+
+        <!-- Tambahan blob gerak scroll -->
+        <div class="morph-bg"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                        </span>
+                        <span class="text-sm font-semibold text-blue-600">Program Makan Bergizi Gratis</span>
+                    </div>
+
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Sistem Pengelolaan <br>
+                        <span class="gradient-text">MBG FOOD HUB</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Platform digital terpadu untuk mengelola program Makan Bergizi Gratis pemerintah. Transparan,
+                        efisien, dan akuntabel dari dapur hingga distribusi.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="https://school.decaasoftwares.com/"
+                            class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg inline-flex items-center justify-center gap-3 shadow-lg shadow-blue-500/30">
+                            <span>Get Started</span>
+                            <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                        </a>
+                        <button
+                            class="bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold border border-gray-200 hover:border-blue-400 hover:bg-gray-50 transition shadow-sm">
+                            Pelajari Lebih Lanjut
+                        </button>
+                    </div>
+
+                    <div class="pt-8 border-t border-gray-100">
+                        <!-- <p class="text-sm text-gray-500 mb-4">Dipercaya oleh sekolah & penyedia catering</p>
+                        <div class="flex items-center -space-x-4">
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">A</div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600">B</div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-400 flex items-center justify-center text-xs font-bold text-gray-600">C</div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">+1k</div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="relative floating">
+                    <div class="absolute inset-0 bg-blue-600 rounded-[2.5rem] rotate-3 opacity-10 blur-xl"></div>
+
+                    <div
+                        class="relative bg-white/40 backdrop-blur-xl border border-white/50 rounded-3xl p-6 shadow-2xl">
+                        <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-2 shadow-inner mb-4">
+                            <img src="assets/images/bgnpict.png" alt="Dashboard Preview"
+                                class="rounded-xl shadow-lg w-full h-auto">
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-2 shadow-inner">
+                            <img src="assets/images/bgnmappict.png" alt="Map Preview"
+                                class="rounded-xl shadow-lg w-full h-auto">
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute -top-6 -right-4 bg-white p-4 rounded-2xl shadow-xl pulse-animation border border-gray-100">
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30">
+                                <span class="text-white text-xl">✓</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Terverifikasi</p>
+                                <p class="text-sm text-gray-500">Program Resmi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                    <p class="text-4xl font-bold mb-2 stats-counter" data-target="1200" data-suffix="">
+                        0
+                    </p>
+                    <p class="text-blue-100">Komponen Sistem</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold mb-2 stats-counter" data-target="500" data-suffix="+">
+                        0
+                    </p>
+                    <p class="text-blue-100">Fitur Unggulan</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold mb-2 stats-counter" data-target="100" data-suffix="%">
+                        0
+                    </p>
+                    <p class="text-blue-100">Transparansi</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold mb-2 stats-counter" data-target="24" data-suffix="/7">
+                        0
+                    </p>
+                    <p class="text-blue-100">Support Real-time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Info -->
+    <!-- kata2 nya diganti supaya menjelaskan "apa saja kegunaan website ini" -->
+    <section id="program" class="py-20 bg-white relative z-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Dari Program ke Operasional, Semua Terkelola.
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    MBG FOOD HUB adalah sistem digital untuk mengelola Program Makan Bergizi Gratis secara terstruktur,
+                    transparan, dan real-time — dari dapur hingga laporan resmi.
+                </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="2" x2="12" y2="6" />
+                            <line x1="12" y1="18" x2="12" y2="22" />
+                            <line x1="2" y1="12" x2="6" y2="12" />
+                            <line x1="18" y1="12" x2="22" y2="12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        Pengelolaan MBG Terpusat
+                    </h3>
+                    <p class="text-gray-600">
+                        Mengelola seluruh operasional MBG dalam satu platform: perencanaan menu, distribusi makanan,
+                        relawan, hingga laporan keuangan — semua terkontrol dari satu dashboard.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-clipboard-check-icon lucide-clipboard-check">
+                                <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                                <path d="m9 14 2 2 4-4" />
+                            </svg></span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        Efisien & Minim Human Error
+                    </h3>
+                    <p class="text-gray-600">
+                        Semua aktivitas dicatat secara digital dan otomatis. Mengurangi kesalahan manual, mempercepat
+                        proses kerja, dan membuat pengelolaan MBG jauh lebih rapi.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1v22" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        Transparan & Akuntabel
+                    </h3>
+                    <p class="text-gray-600">
+                        Data tersaji real-time dan siap dipertanggungjawabkan. Mendukung monitoring, evaluasi, serta
+                        pelaporan sesuai standar pemerintah dengan aman dan terpercaya.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Features Section -->
+    <section id="fitur" class="py-20 relative overflow-hidden bg-white">
+        <!-- Background Container -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Shapes Container 1 -->
+            <div class="geometric-shapes-container">
+                <!-- Shape di sisi kiri -->
+                <div class="geometric-shape geometric-circle shape-left-1"></div>
+                <div class="geometric-shape geometric-square shape-left-2"></div>
+                <div class="geometric-shape geometric-triangle shape-left-3"></div>
+                <!-- Shapes di sisi kanan -->
+                <div class="geometric-shape geometric-diamond shape-right-2"></div>
+                <div class="geometric-shape geometric-ring shape-right-3"></div>
+                <!-- Partikel dots di sisi kiri -->
+                <div class="geometric-dot dot-left-1"></div>
+                <div class="geometric-dot dot-left-2"></div>
+                <div class="geometric-dot dot-left-3"></div>
+                <!-- Partikel dots di sisi kanan -->
+                <div class="geometric-dot dot-right-1"></div>
+                <div class="geometric-dot dot-right-2"></div>
+                <div class="geometric-dot dot-right-3"></div>
+                <div class="geometric-dot dot-right-4"></div>
+                <div class="geometric-dot dot-right-5"></div>
+            </div>
+
+            <!-- Shape Container 2 -->
+            <div class="shape shape-1">
+                <div class="w-16 h-16 border-2 border-blue-300/30 rounded-lg"></div>
+            </div>
+
+            <div class="shape shape-2 animate-float-y">
+                <div class="w-12 h-12 border-3 border-purple-300/40 rounded-full"></div>
+            </div>
+
+            <div class="shape shape-3 animate-rotate">
+                <div class="w-20 h-20 border-2 border-cyan-300/50 rounded-lg"></div>
+            </div>
+
+            <div class="shape shape-4 animate-float-y">
+                <div class="w-10 h-10 border-3 border-indigo-300/40 triangle"></div>
+            </div>
+
+            <div class="shape shape-5 animate-float-x">
+                <div class="w-14 h-14 border-4 border-pink-300/30 hexagon"></div>
+            </div>
+
+            <div class="shape shape-6">
+                <div class="w-24 h-24 border-2 border-blue-300/50 rounded-full"></div>
+            </div>
+
+            <!-- Main floating particles 1 -->
+            <div class="particle-container">
+                <div class="floating-particle particle-small particle-circle particle-1"></div>
+                <div class="floating-particle particle-medium particle-square particle-2"></div>
+                <div class="floating-particle particle-medium particle-circle particle-4"></div>
+                <div class="floating-particle particle-small particle-square particle-5"></div>
+                <div class="floating-particle particle-large particle-circle particle-7"></div>
+                <div class="floating-particle particle-small particle-square particle-8"></div>
+                <div class="floating-particle particle-large particle-circle particle-10"></div>
+
+                <!-- Background bubble particles -->
+                <div class="bubble-particle bubble-small bubble-1"></div>
+                <div class="bubble-particle bubble-medium bubble-2"></div>
+                <div class="bubble-particle bubble-large bubble-3"></div>
+                <div class="bubble-particle bubble-medium bubble-4"></div>
+
+                <!-- Sparkle particles -->
+                <div class="sparkle-particle sparkle-1"></div>
+                <div class="sparkle-particle sparkle-2"></div>
+                <div class="sparkle-particle sparkle-3"></div>
+                <div class="sparkle-particle sparkle-4"></div>
+            </div>
+
+            <!-- Main floating particles 2 -->
+            <div class="particles-container">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+
+            <!-- Gradient Blobs -->
+            <div
+                class="absolute top-1/3 -right-20 w-80 h-80 bg-gradient-to-r from-indigo-400/15 to-pink-400/15 rounded-full animate-float-medium blur-3xl">
+            </div>
+            <div
+                class="absolute bottom-20 left-1/4 w-64 h-64 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-full animate-float-slow blur-3xl">
+            </div>
+        </div>
+
+        <!-- Konten utama -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Judul -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Fitur Lengkap & Terintegrasi</h2>
+                <p class="text-xl text-gray-600">8 Modul sistem untuk pengelolaan menyeluruh dari hulu ke hilir</p>
+            </div>
+
+            <!-- Dashboard - Full Width -->
+            <div class="mb-12">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden card-hover">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="p-10">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span
+                                class="inline-block px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-md font-semibold mb-4">Dashboard</span>
+                            <p class="text-gray-600 mb-6">Monitoring real-time keuangan, distribusi, dan kinerja
+                                operasional dalam satu tampilan terpadu</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3">✓</span>
+                                    <span>Grafik Pemasukan & Pengeluaran Real-time</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3">✓</span>
+                                    <span>Anggaran vs Realisasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3">✓</span>
+                                    <span>Kinerja Distribusi & Rekonsiliasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3">✓</span>
+                                    <span>Saldo, Ringkasan Anggaran & Riwayat BKU</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-tl-3xl rounded-bl-3xl">
+                            <img src="assets/images/bgnpict.png" alt="Dashboard Preview"
+                                class="rounded-2xl shadow-xl w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master Data & Relawan - 2 Columns -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Master Data -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover">
+                    <div class="p-8 bg-gradient-to-br from-purple-50 to-purple-100">
+                        <img src="assets/images/masterdata.png" alt="Dashboard Preview"
+                            class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4">
+                                </path>
+                            </svg>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-md font-semibold mb-3">Master
+                            Data</span>
+                        <p class="text-gray-600 mb-4">Database lengkap bahan baku, supplier, dan mapping distribusi</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• Bahan Baku & Operasional</li>
+                            <li>• Database Gizi Lengkap</li>
+                            <li>• Mapping Sekolah & Supplier</li>
+                            <li>• Titik Distribusi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Relawan -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover">
+                    <div class="p-8 bg-gradient-to-br from-green-50 to-green-100">
+                        <img src="assets/images/relawan.png" alt="Dashboard Preview"
+                            class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span
+                            class="inline-block px-3 py-1 bg-green-50 text-green-600 rounded-full text-md font-semibold mb-3">Relawan</span>
+                        <p class="text-gray-600 mb-4">Manajemen tenaga relawan dan sistem penggajian otomatis</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• Kategori Relawan</li>
+                            <li>• Absensi Digital</li>
+                            <li>• Penggajian Otomatis</li>
+                            <li>• Laporan Kinerja</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master Dapur - Full Width Reverse -->
+            <div class="mb-12">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden card-hover">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div
+                            class="p-8 bg-gradient-to-br from-rose-50 to-rose-100 order-2 md:order-1 rounded-tr-3xl rounded-br-3xl">
+                            <img src="assets/images/dapur.png" alt="Dashboard Preview"
+                                class="rounded-2xl shadow-xl w-full h-auto">
+                        </div>
+                        <div class="p-10 order-1 md:order-2">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span
+                                class="inline-block px-4 py-1 bg-rose-50 text-rose-600 rounded-full text-md font-semibold mb-4">Master
+                                Dapur</span>
+                            <p class="text-gray-600 mb-6">Perencanaan menu bergizi dan manajemen dapur</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-rose-600 mr-3">✓</span>
+                                    <span>Menu</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-rose-600 mr-3">✓</span>
+                                    <span>Paket Menu</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-rose-600 mr-3">✓</span>
+                                    <span>Perencanaan Menu</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-rose-600 mr-3">✓</span>
+                                    <span>Resep Standar</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Transaksi -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                    </div>
+                    <span
+                        class="inline-block px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-md font-semibold mb-4">Transaksi</span>
+                    <p class="text-sm text-gray-600 mb-3">Pencatatan lengkap dari pembelian hingga pembayaran</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>• Purchase Order</li>
+                        <li>• Penerimaan Barang</li>
+                        <li>• Penggunaan Barang</li>
+                        <li>• Pembayaran Supplier</li>
+                    </ul>
+                </div>
+
+                <!-- Gudang -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <span
+                        class="inline-block px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-md font-semibold mb-3">Gudang</span>
+                    <p class="text-sm text-gray-600 mb-3">Monitoring stok real-time dan inventory management</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>• Stok Real-time</li>
+                        <li>• Kartu Stok</li>
+                        <li>• Stok Opname</li>
+                        <li>• Alert Stok Minimum</li>
+                    </ul>
+                </div>
+
+                <!-- Keuangan -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span
+                        class="inline-block px-3 py-1 bg-green-50 text-green-600 rounded-full text-md font-semibold mb-3">Keuangan</span>
+                    <p class="text-sm text-gray-600 mb-3">Pengelolaan keuangan transparan dan akuntabel</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>• Proposal & Virtual Account</li>
+                        <li>• Rekap BKU</li>
+                        <li>• Rekonsiliasi</li>
+                        <li>• Rekening Koran</li>
+                    </ul>
+                </div>
+
+                <!-- Laporan -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span
+                        class="inline-block px-4 py-1 bg-rose-50 text-rose-600 rounded-full text-md font-semibold mb-4">Laporan</span>
+                    <p class="text-sm text-gray-600 mb-3">Laporan lengkap sesuai standar pemerintah</p>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li>• BKU, LPDB, LBBP</li>
+                        <li>• LBO, LBS, LRA</li>
+                        <li>• Rekap Porsi & Dana</li>
+                        <li>• Export PDF & Excel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients & Partners -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Judul -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-3">
+                    Our Partners
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    Didukung Oleh :
+                </p>
+            </div>
+
+            <!-- Slider -->
+            <div class="swiper clientSwiper">
+                <div class="swiper-wrapper items-center">
+
+                    <!-- Logo item -->
+                    <div class="swiper-slide flex justify-center">
+                        <img src="assets/images/clients/logo-bgn.png"
+                            class="h-16 object-contain grayscale hover:grayscale-0 transition" alt="Client 1">
+                    </div>
+
+                    <div class="swiper-slide flex justify-center">
+                        <img src="assets/images/clients/decaa.png"
+                            class="h-16 object-contain grayscale hover:grayscale-0 transition" alt="Client 2">
+                    </div>
+
+                    <div class="swiper-slide flex justify-center">
+                        <img src="assets/images/clients/garuda.png"
+                            class="h-16 object-contain grayscale hover:grayscale-0 transition" alt="Client 3">
+                    </div>
+
+                    <div class="swiper-slide flex justify-center">
+                        <img src="assets/images/clients/decaa.png"
+                            class="h-16 object-contain grayscale hover:grayscale-0 transition" alt="Client 4">
+                    </div>
+
+                    <div class="swiper-slide flex justify-center">
+                        <img src="assets/images/clients/logo-bgn.png"
+                            class="h-16 object-contain grayscale hover:grayscale-0 transition" alt="Client 5">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Siap Mengelola Program Makan Bergizi?</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Bergabunglah dengan SPPG yang telah mempercayai MBG FOOD HUB untuk transparansi dan efisiensi program.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://school.decaasoftwares.com/"
+                    class="bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition">
+                    Mulai Sekarang
+                </a>
+                <button
+                    class="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Hubungi Kami
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Layout Footer ini telah diubah -->
+    <footer id="tentang"
+        class="bg-gray-900 text-gray-300 pt-20 pb-10 border-t border-gray-800 relative overflow-hidden">
+
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+                <div class="space-y-6">
+                    <div class="flex flex-col items-center">
+                        <img src="assets/images/clients/logo-bgn.png" alt="Dashboard Preview"
+                            class="rounded-2xl shadow-xl h-24 mb-2">
+                        <h3 class="text-3xl font-bold gradient-text mb-2">MBG FOOD HUB</h3>
+                        <p class="text-sm text-gray-500 font-medium">Makan Bergizi Gratis</p>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Platform digital terintegrasi untuk pengelolaan program gizi nasional. Transparan, Akuntabel,
+                        dan Tepat Sasaran.
+                    </p>
+
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6">Akses Cepat</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#beranda"
+                                class="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors"></span>
+                                Beranda
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fitur"
+                                class="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors"></span>
+                                Fitur Unggulan
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#program"
+                                class="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors"></span>
+                                Program
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://school.decaasoftwares.com/"
+                                class="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors"></span>
+                                Login Aplikasi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6">Hubungi Kami</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-gray-800 flex-shrink-0 flex items-center justify-center text-blue-500">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Kantor Pusat</p>
+                                <p class="text-sm text-gray-400">Sulawesi Selatan</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-gray-800 flex-shrink-0 flex items-center justify-center text-blue-500">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Email</p>
+                                <a href="mailto:support@mbgfoodhub.id"
+                                    class="text-sm text-gray-400 hover:text-blue-400 transition">support@mbgfoodhub.id</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-gray-800 flex-shrink-0 flex items-center justify-center text-blue-500">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Telepon</p>
+                                <p class="text-sm text-gray-400">+62 21 5555 1234</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6">Bantuan & Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Pusat Bantuan</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">FAQ</a></li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-gray-800">
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300 group">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-blue-400 hover:text-white transition-all duration-300 group">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all duration-300 group">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-blue-700 hover:text-white transition-all duration-300 group">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 mt-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-500 text-center md:text-left">
+                        &copy; 2025 <span class="text-blue-400">MBG FOOD HUB</span>. All rights reserved.
+                        <span class="hidden sm:inline mx-2">|</span>
+                        Developed by <a href="https://decaa.id"
+                            class="text-white hover:text-blue-400 font-medium transition">Decaa.id</a>
+                    </p>
+
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                        class="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-blue-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800 md:mt-4">
+                        Kembali ke Atas
+                        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const blob = document.querySelector('.morph-bg');
+            if (blob) {
+                // Blob akan bergerak turun dengan kecepatan setengah dari kecepatan scroll
+                blob.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        // Sidebar Toggle Logic
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const body = document.body;
+
+            if (sidebar.classList.contains('translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                // Small delay to allow display:block to apply before opacity transition
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                }, 10);
+                body.classList.add('overflow-hidden'); // Prevent scrolling background
+            } else {
+                // Close sidebar
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                body.classList.remove('overflow-hidden');
+
+                // Wait for transition to finish before hiding
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
